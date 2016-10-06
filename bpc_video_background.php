@@ -13,13 +13,6 @@ All rights reserved.
 */
 
 /**
- * Constants
- */
-
-define( 'BPCFBV_VERSION', '1.0' );
-
-
-/**
  * 
  * @param  $id			id of <video>
  * @param  $id_image	id of div that holds background image for mobile devices
