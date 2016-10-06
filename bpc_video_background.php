@@ -2,10 +2,14 @@
 /*
 Plugin Name: Fullscreen Background Video
 Plugin URI: http://bluepenguinconsulting.com
-Description: jQuery WordPress plugin to easily add a background video to an element
+Description: jQuery WordPress plugin to easily add a background video to an element. Video will be fullscreen.
 Author: Julia H Chen
 Version: 1.0
 Author URI: http://bluepenguinconsulting.com
+*/
+/*
+Copyright (c) 2016, Julia H Chen
+All rights reserved.
 */
 
 /**
@@ -16,54 +20,14 @@ define( 'BPCFBV_VERSION', '1.0' );
 
 
 /**
- * Store default settings in an array
+ * 
+ * @param  $id			id of <video>
+ * @param  $id_image	id of div that holds background image for mobile devices
+ * @param  $container	id of element containing video (usually <header>)
+ * @param  $width		width (aspect ratio)
+ * @param  $height		height (aspect ratio)
+ * @param  $opt			optional space below video
  */
-
-function bpcfbv_defaults() {
-
-	$defaults_array = array(
-
-		'id'                => 'hero_video',
-		'id_image'			=> 'hero_image',
-		'container'         => 'header',
-		'width'          	=> '16',
-		'height'       		=> '9',
-		'opt'       		=> '0',
-	);
-
-	return $defaults_array;
-}
-
-/**
- * When plugin is installed, write default settings and update version
- */
-
-function bpcfbv_install() {
-
-	$defaults_array = bpcfbv_defaults();
-	add_option( 'bpcfbv', $defaults_array );
-	update_option( 'bpcfbv_active_version', BPCFBV_VERSION );
-
-}
-register_activation_hook( __FILE__, 'bpcfbv_install' );
-
-
-
-/**
- * If requested, when plugin is deactivated, remove settings
- */
-
-function bpcfbv_uninstall() {
-	$settings = get_option( 'bpcfbv' );
-	if ( isset($settings['uninstall']) && $settings['uninstall'] ) {
-		delete_option( 'bpcfbv' );
-		delete_option( 'bpcfbv_active_version' );
-	}
-}
-register_deactivation_hook( __FILE__, 'bpcfbv_uninstall' );
-
-
-
 function bpc_video_background($id ='hero_video', $id_image='hero_image',  $container='header_vid', $width=16, $height=9, $opt=0) {
 
 if (is_front_page()) {
