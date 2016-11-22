@@ -21,9 +21,7 @@ All rights reserved.
  * @param  $height		height (aspect ratio)
  * @param  $opt			optional space below video
  */
-function bpc_video_background($id ='hero_video', $id_image='hero_image',  $container='header_vid', $width=16, $height=9, $opt=0) {
-
-if (is_front_page()) {
+function bpc_video_background($id ='hero_video', $id_image='hero_image',  $container='header_vid', $width=16, $height=9) {
 	
 	
 
@@ -32,7 +30,7 @@ if (is_front_page()) {
 <script>
 (function($) {
 
-		function fullscreen(id, id_image,  container, width, height, opt){
+		function fullscreen(id, id_image,  container, width, height){
 		
    			var videoDiv = document.getElementById(id);
 			var imageDiv = document.getElementById(id_image);
@@ -53,7 +51,7 @@ if (is_front_page()) {
 				videoDiv.style.width = $(window).width() + "px";
 				videoDiv.style.height = ($(window).width() / (width / height)) + "px";
 				
-				$(containerDiv).css("height", ($(window).height()-opt));
+				$(containerDiv).css("height", $(window).height());
 				
 				var marginch =  ($(window).width() * (height / width)) - $(window).height();
 				
@@ -62,9 +60,8 @@ if (is_front_page()) {
 					videoDiv.style.top = 0;
 				}
 				else {
-					videoDiv.style.left = 0;
-					
-					videoDiv.style.top = "-"+ (marginch + opt) +"px";
+					videoDiv.style.left = 0;				
+					videoDiv.style.top = "-"+ marginch +"px";
 				}
 				
 			}
@@ -75,7 +72,7 @@ if (is_front_page()) {
 				videoDiv.style.width = ($(window).height() * (width / height)) + "px";
 				
 				videoDiv.style.height = $(window).height() + "px";
-				$(containerDiv).css("height", ($(window).height()-opt));
+				$(containerDiv).css("height", $(window).height());
 				
 				var marginch =  ($(window).height() * (width / height)) - $(window).width();
 	
@@ -85,7 +82,7 @@ if (is_front_page()) {
 					videoDiv.style.top = 0;
 				}
 				else {
-					videoDiv.style.top = "-"+opt+"px";
+					videoDiv.style.top = 0;
 					videoDiv.style.left = "-"+marginch+"px";
 				}
 			}
@@ -95,17 +92,17 @@ if (is_front_page()) {
 	
     }
   
-    fullscreen("<?php echo $id; ?>", "<?php echo $id_image; ?>", "<?php echo $container; ?>", <?php echo $width; ?>, <?php echo $height; ?>, <?php echo $opt; ?>);
+    fullscreen("<?php echo $id; ?>", "<?php echo $id_image; ?>", "<?php echo $container; ?>", <?php echo $width; ?>, <?php echo $height; ?>);
 
   // Run the function in case of window resize
   $(window).resize(function() {
-       fullscreen("<?php echo $id; ?>", "<?php echo $id_image; ?>", "<?php echo $container; ?>", <?php echo $width; ?>, <?php echo $height; ?>, <?php echo $opt; ?>); 
+       fullscreen("<?php echo $id; ?>", "<?php echo $id_image; ?>", "<?php echo $container; ?>", <?php echo $width; ?>, <?php echo $height; ?>); 
 	});        
  
   })( jQuery );
 </script>
 <?php
-}}
+}
 add_action( 'bpc_video_background', 'bpc_video_background' );
 
 
