@@ -20,11 +20,11 @@ Add <?php bpc_video_background($id, $id_image, $container, $width, $height) ?> (
 
 Parameters:
 
-*$id			id of <video>
-*$id_image		id of div that holds background image for mobile devices
-*$container		id of element containing video (usually <header>)
-*$width			width (aspect ratio, default 16)
-*$height		height (aspect ratio, default 9)
+* $id			id of <video>
+* $id_image		id of div that holds background image for mobile devices
+* $container	id of element containing video (usually <header>)
+* $width		width (aspect ratio, default 16)
+* $height		height (aspect ratio, default 9)
 
 ## Changelog
 
