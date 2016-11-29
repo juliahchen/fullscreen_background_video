@@ -21,9 +21,7 @@ All rights reserved.
  * @param  $height		height (aspect ratio)
  * @param  $opt			optional space below video
  */
-function bpc_video_background($id ='hero_video', $id_image='hero_image',  $container='header_vid', $width=16, $height=9) {
-	
-	
+function bpc_video_background($id, $id_image, $container, $width=16, $height=9) {	
 
 ?>
 
@@ -106,5 +104,14 @@ function bpc_video_background($id ='hero_video', $id_image='hero_image',  $conta
 add_action( 'bpc_video_background', 'bpc_video_background' );
 
 
+function bpc_video_background_css() {
+
+	$output="<style>#".$container." {overflow:hidden;display:block; position:relative; }#".$id." {overflow: hidden;position: absolute;top: 0;left: 0;right: 0;z-index: 0;height: 100%;}</style>";
+
+	echo $output;
+
+}
+
+add_action('wp_head','bpc_video_background_css');
 
 ?>
