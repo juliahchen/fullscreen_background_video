@@ -65,7 +65,7 @@ function bpc_video_background_init($id, $id_image, $container, $width=16, $heigh
 					}
 					else {
 						$(videoDiv).css("left", 0);
-						$(videoDiv).css("top", "-"+ margin);
+						$(videoDiv).css("top", "-"+ margin+"px");
 					}
 
 				}
@@ -83,7 +83,7 @@ function bpc_video_background_init($id, $id_image, $container, $width=16, $heigh
 					}
 					else {
 						$(videoDiv).css("top", 0);
-						$(videoDiv).css("left", "-"+ margin);
+						$(videoDiv).css("left", "-"+ margin+"px");
 					}
 				}
 			}
