@@ -53,10 +53,10 @@
 		}
 	}
 
-	fullscreen(id, id_image,  container, 16, 9);
+	fullscreen("id", "id_image",  "container", 16, 9);
 	// Run the function in case of window resize
 	$(window).resize(function() {
-		fullscreen(id, id_image,  container, 16, 9);
+		fullscreen("id", "id_image",  "container", 16, 9);
 	});
 
 })( jQuery );
